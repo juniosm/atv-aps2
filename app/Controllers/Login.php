@@ -34,14 +34,13 @@ class Login extends BaseController
     }
 
     $user = new User();
-    $userFound = $user->where('email', $this->request->getPost('email'))->first();
+    $userFound = $user->select('id, nome, sobrenome, email, password')->where('email', $this->request->getPost('email'))->first();
 
     if (!$userFound) {
       return redirect()->route('login')->with('message', "Email ou senha incorreto.");
     }
-
-
-    if (!password_verify($this->request->getPost('password'), $userFound->password)) {
+    // dd($userFound->password);
+    if (!password_verify($this->request->getVar('password'), $userFound->password)) {
       return redirect()->route('login')->with('message', "Email ou senha incorreto.");
     }
 

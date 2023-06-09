@@ -2,10 +2,7 @@
 <?php $this->section('content'); ?>
 <section class="home">
   <div class="container">
-    <div class="info-user">
-      <h1><span>Bem-vindo</span>Nome e Sobrenome</h1>
-      <img src="<?php echo base_url(); ?>assets/imgs/eating-food.svg" alt="">
-    </div>
+    <?php echo view("sections/intro") ?>
     <ul class="list-menu">
       <li>
         <img src="<?php echo base_url(); ?>assets/imgs/icons/time.svg" alt="">
@@ -38,7 +35,7 @@
 
       <li>
         <img src="<?php echo base_url(); ?>assets/imgs/icons/ficha.svg" alt="">
-        <a href="">Fichas</a>
+        <a href=" <?php echo url_to('ficha') ?> ">Fichas</a>
       </li>
     </ul>
   </div>

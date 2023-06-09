@@ -20,6 +20,7 @@
         <li><a href="#">URCA</a></li>
         <li>CURSOS</li>
         <li>SOBRE</li>
+        <li>SAIR</li>
       </ul>
     </div>
   </header>
