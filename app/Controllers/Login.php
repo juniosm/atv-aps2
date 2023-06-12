@@ -50,10 +50,10 @@ class Login extends BaseController
     return redirect()->route("home");
   }
 
-  public function destroy(){
+  public function destroy()
+  {
 
     session()->destroy();
     return redirect()->route("login");
   }
-
 }

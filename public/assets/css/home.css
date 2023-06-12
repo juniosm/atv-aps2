@@ -95,14 +95,13 @@
 
 .header-lg p {
   font-size: 1rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .footer {
   position: absolute;
   bottom: 0;
   right: 0;
-  margin-top: 40px;
   background-color: white;
   width: 100%;
   padding: 20px 0;

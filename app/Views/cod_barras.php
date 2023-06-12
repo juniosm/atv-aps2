@@ -1,8 +1,8 @@
-<?php 
-  $cod = session()->get('user')->cod_barra;
-  $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-  $bar_code   = $generator->getBarcode($cod, $generator::TYPE_CODE_128, 4, 100);
-  $img_base64 = base64_encode($bar_code);
+<?php
+$cod = session()->get('user')->cod_barra;
+$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+$bar_code   = $generator->getBarcode($cod, $generator::TYPE_CODE_128, 4, 100);
+$img_base64 = base64_encode($bar_code);
 
 ?>
 
@@ -14,7 +14,7 @@
     <div class="cod-bar">
       <h1>Codigo de barras</h1>
       <div>
-        <?php echo '<img src="data:image/png;base64,' . $img_base64 . '">';?>
+        <?php echo '<img src="data:image/png;base64,' . $img_base64 . '">'; ?>
       </div>
     </div>
     <div class="num-fichas">

@@ -15,6 +15,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+$routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -39,6 +40,12 @@ $routes->get("/ficha", "Ficha::index",  ["as" => "ficha"]);
 $routes->get("/ficha/addfichas", "Ficha::add_fichas",  ["as" => "add_fichas"]);
 $routes->get("/ficha/menu", "Ficha::menu",  ["as" => "menu"]);
 $routes->get("/ficha/codbarras", "Ficha::cod_barras",  ["as" => "cod_barras"]);
+$routes->post("/fichastore", 'Ficha::store', ["as" => "ficha.store"]);
+$routes->get("/ficha/lercod", "Ficha::ler_cod",  ["as" => "ler_cod"]);
+$routes->get("/ficha/updateficha", "Ficha::updateficha",  ["as" => "updateficha"]);
+
+
+
 
 
 /*

@@ -16,8 +16,8 @@
   <header class="header-bg">
     <div class="header container">
       <div class='header-lg'>
-      <img src="<?php echo base_url(); ?>assets/imgs/logo.png" alt="">
-      <p>Universidade Regional do Cariri</p>
+        <img src="<?php echo base_url(); ?>assets/imgs/logo.png" alt="">
+        <p>Universidade Regional do Cariri</p>
       </div>
       <ul class="menu-header">
         <li><a href="#">URCA</a></li>
@@ -26,10 +26,8 @@
         <li><a href="<?php echo url_to('login.destroy') ?>"> <strong>SAIR</strong></a> </li>
       </ul>
     </div>
-  </header
-
-  <main>
-    
+  </header>
+  <main class="mb-20">
     <?php $this->renderSection("content"); ?>
   </main>
 
