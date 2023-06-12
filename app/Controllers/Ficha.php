@@ -10,4 +10,18 @@ class Ficha extends BaseController
     {
         return view('ficha');
     }
+
+    public function add_fichas()
+    {
+        
+        return view('add_fichas');
+    }
+    public function menu()
+    {
+        return view('menu');
+    }
+    public function cod_barras()
+    {
+        return view('cod_barras');
+    }
 }

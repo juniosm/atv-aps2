@@ -32,8 +32,14 @@ $routes->set404Override();
 $routes->get('/', 'Home::index', ['as' => 'home']);
 $routes->get("/login", "Login::index",  ["as" => "login"]);
 $routes->post("/login", 'Login::store', ["as" => "login.store"]);
+$routes->get("/login/destroy", "Login::destroy",  ["as" => "login.destroy"]);
+
 
 $routes->get("/ficha", "Ficha::index",  ["as" => "ficha"]);
+$routes->get("/ficha/addfichas", "Ficha::add_fichas",  ["as" => "add_fichas"]);
+$routes->get("/ficha/menu", "Ficha::menu",  ["as" => "menu"]);
+$routes->get("/ficha/codbarras", "Ficha::cod_barras",  ["as" => "cod_barras"]);
+
 
 /*
  * --------------------------------------------------------------------

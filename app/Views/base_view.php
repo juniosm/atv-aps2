@@ -15,17 +15,21 @@
 <body>
   <header class="header-bg">
     <div class="header container">
+      <div class='header-lg'>
       <img src="<?php echo base_url(); ?>assets/imgs/logo.png" alt="">
+      <p>Universidade Regional do Cariri</p>
+      </div>
       <ul class="menu-header">
         <li><a href="#">URCA</a></li>
         <li>CURSOS</li>
         <li>SOBRE</li>
-        <li>SAIR</li>
+        <li><a href="<?php echo url_to('login.destroy') ?>"> <strong>SAIR</strong></a> </li>
       </ul>
     </div>
-  </header>
+  </header
 
   <main>
+    
     <?php $this->renderSection("content"); ?>
   </main>
 

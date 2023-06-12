@@ -34,7 +34,7 @@ class Login extends BaseController
     }
 
     $user = new User();
-    $userFound = $user->select('id, nome, sobrenome, email, password')->where('email', $this->request->getPost('email'))->first();
+    $userFound = $user->select('id, nome, sobrenome, email, password, cod_barra, num_fichas')->where('email', $this->request->getPost('email'))->first();
 
     if (!$userFound) {
       return redirect()->route('login')->with('message', "Email ou senha incorreto.");
@@ -49,4 +49,11 @@ class Login extends BaseController
 
     return redirect()->route("home");
   }
+
+  public function destroy(){
+
+    session()->destroy();
+    return redirect()->route("login");
+  }
+
 }

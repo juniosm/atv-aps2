@@ -1,0 +1,34 @@
+.title-central {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table,
+.cod-bar div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.15);
+}
+
+table {
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.cod-bar h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cod-bar {
+  max-width: max-content;
+}
