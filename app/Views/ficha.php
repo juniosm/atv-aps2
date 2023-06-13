@@ -20,7 +20,7 @@
     </ul>
     <div class="num-fichas">
       <h1>Fichas</h1>
-      <p><?php echo session()->get('user')->num_fichas ?></p>
+      <p><?php echo session()->get('ficha') ?></p>
     </div>
   </div>
 

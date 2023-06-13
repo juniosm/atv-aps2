@@ -30,6 +30,23 @@ class Ficha extends BaseController
         return view('ler_cod');
     }
 
+
+    public function updateficha($user, $userfound)
+    {
+
+        $data = [
+            'id' => $userfound->id,
+            'num_fichas' => $userfound->num_fichas - 1,
+        ];
+        ## Update record
+        if ($user->update($userfound->id, $data)) {
+            session()->setFlashdata('teste', 'Updated Successfully!');
+            session()->setFlashdata('alert-class', 'alert-success');
+        };
+        return $data;
+    }
+
+
     public function store()
     {
         if (!$this->request->isAjax()) {
@@ -39,20 +56,17 @@ class Ficha extends BaseController
         $retorno = [];
 
         $user = new User();
-        $userfound = $user->select("id, cod_barra, num_fichas")->where('cod_barra', $cod)->first();
+        $userfound = $user->select("*")->where('cod_barra', $cod)->first();
 
         if (!isset($userfound)) {
             $retorno['erro'] = '<span class="small"> erro</span>';
             return $this->response->setJSON($retorno);
         }
-
-        $user->where('id', $userfound->id);
-        $user->set(array('num_fichas' => 'num_fichas-1'));
-        $user->update('user');
-
         $valor = $userfound->num_fichas - 1;
-        $retorno['certo'] = "<div>" . esc($valor) . "</div>";
+        session()->set('ficha', $valor);
 
+        $retorno['certo'] = "<div>Aceito número de fichas: "  . esc($valor) . "</div>";
+        $this->updateficha($user, $userfound);
         return $this->response->setJSON($retorno);
     }
 }

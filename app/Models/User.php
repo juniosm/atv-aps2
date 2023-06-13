@@ -13,7 +13,9 @@ class User extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'num_fichas',
+    ];
 
     // Dates
     protected $useTimestamps = false;

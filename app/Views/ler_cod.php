@@ -19,8 +19,8 @@
         <input class="input" name="cod" id="code" type="text">
       </div>
       <div id="resposta"> </div>
-      <div><?php echo session()->getFlashdata('teste'); ?></div>
     </form>
+
   </section>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script>
