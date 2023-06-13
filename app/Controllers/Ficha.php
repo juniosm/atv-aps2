@@ -39,33 +39,20 @@ class Ficha extends BaseController
         $retorno = [];
 
         $user = new User();
-        $userfound = $user->select("*")->where('cod_barra', $cod)->first();
+        $userfound = $user->select("id, cod_barra, num_fichas")->where('cod_barra', $cod)->first();
 
         if (!isset($userfound)) {
             $retorno['erro'] = '<span class="small"> erro</span>';
             return $this->response->setJSON($retorno);
         }
+
+        $user->where('id', $userfound->id);
+        $user->set(array('num_fichas' => 'num_fichas-1'));
+        $user->update('user');
+
         $valor = $userfound->num_fichas - 1;
-        $this->updateficha($userfound);
-
         $retorno['certo'] = "<div>" . esc($valor) . "</div>";
+
         return $this->response->setJSON($retorno);
-    }
-
-
-    public function updateficha($userfound)
-    {
-        $user = new User();
-
-        $data = [
-            'id' => $userfound->id,
-            'num_fichas' => $userfound->num_fichas,
-        ];
-
-        ## Update record
-        if ($user->update($userfound->id, $data)) {
-            session()->setFlashdata('message', 'Updated Successfully!');
-            session()->setFlashdata('alert-class', 'alert-success');
-        };
     }
 }
