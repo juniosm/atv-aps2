@@ -22,7 +22,7 @@
       <h1>Aluno Online</h1>
 
       <?php if (session()->has("message")) : ?>
-        <span><?php echo session()->getFlashdata("message") ?></span>
+      <span><?php echo session()->getFlashdata("message") ?></span>
       <?php endif ?>
 
       <form class="form" action=" <?php echo url_to('login.store') ?> " method="post" class="form">

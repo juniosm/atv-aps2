@@ -18,10 +18,8 @@
         <a href="<?php echo url_to('cod_barras') ?>">Codigo de barras</a>
       </li>
     </ul>
-    <div class="num-fichas">
-      <h1>Fichas</h1>
-      <p><?php echo session()->get('ficha') ?></p>
-    </div>
+    <?php echo view("sections/num_fichas") ?>
+
   </div>
 
 </section>

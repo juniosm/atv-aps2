@@ -17,10 +17,8 @@ $img_base64 = base64_encode($bar_code);
         <?php echo '<img src="data:image/png;base64,' . $img_base64 . '">'; ?>
       </div>
     </div>
-    <div class="num-fichas">
-      <h1>Fichas</h1>
-      <p><?php echo session()->get('ficha') ?></p>
-    </div>
+    <?php echo view("sections/num_fichas") ?>
+
   </div>
 
 </section>

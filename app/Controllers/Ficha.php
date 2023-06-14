@@ -31,18 +31,18 @@ class Ficha extends BaseController
     }
 
 
-    public function updateficha($user, $userfound)
+    public function updateficha($user, $userfound, $valor)
     {
 
         $data = [
             'id' => $userfound->id,
             'num_fichas' => $userfound->num_fichas - 1,
         ];
+
         ## Update record
         if ($user->update($userfound->id, $data)) {
-            session()->setFlashdata('teste', 'Updated Successfully!');
-            session()->setFlashdata('alert-class', 'alert-success');
-        };
+            session()->setFlashdata('teste', $valor);
+        }
         return $data;
     }
 
@@ -65,8 +65,8 @@ class Ficha extends BaseController
         $valor = $userfound->num_fichas - 1;
         session()->set('ficha', $valor);
 
-        $retorno['certo'] = "<div>Aceito número de fichas: "  . esc($valor) . "</div>";
-        $this->updateficha($user, $userfound);
+        $retorno['certo'] = "<div>Aceito número de fichas: " . esc($valor) . "</div>";
+        $this->updateficha($user, $userfound, $valor);
         return $this->response->setJSON($retorno);
     }
 }

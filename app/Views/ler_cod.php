@@ -24,40 +24,41 @@
   </section>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script>
-    $('[name = cod]').focusout(function() {
+  $('[name = cod]').focusout(function() {
 
-      var cod = $(this).val();
-      $.ajax({
-        type: 'post',
-        url: '<?php echo site_url('fichastore'); ?>',
-        dataType: 'json',
-        data: {
-          cod: cod
-        },
-        beforeSend: function() {
+    var cod = $(this).val();
+    $.ajax({
+      type: 'post',
+      url: '<?php echo site_url('fichastore'); ?>',
+      dataType: 'json',
+      data: {
+        cod: cod
+      },
+      beforeSend: function() {
 
-          $("#resposta").html('<div class="small">Consultando..</div>');
+        $("#resposta").html('<div class="small">Consultando..</div>');
 
-          $('[name = cod]').val('');
-        },
-        success: function(response) {
+        $('[name = cod]').val('');
+      },
+      success: function(response) {
 
-          if (!response.erro) {
+        if (!response.erro) {
 
-            $("#resposta").html(response.certo);
-
-          } else {
-            /* Tem erros de validação */
-
-            $("#resposta").html(response.erro);
-
-          }
-
-        },
-      });
+          $("#resposta").html(response.certo);
 
 
+        } else {
+          /* Tem erros de validação */
+
+          $("#resposta").html(response.erro);
+
+        }
+
+      },
     });
+
+
+  });
   </script>
 </body>
 
