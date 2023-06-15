@@ -36,13 +36,14 @@ class Ficha extends BaseController
 
         $data = [
             'id' => $userfound->id,
-            'num_fichas' => $userfound->num_fichas - 1,
+            'num_fichas' => $valor,
         ];
 
         ## Update record
         if ($user->update($userfound->id, $data)) {
-            session()->setFlashdata('teste', $valor);
+            session()->set('ficha', $valor);
         }
+
         return $data;
     }
 
@@ -63,7 +64,6 @@ class Ficha extends BaseController
             return $this->response->setJSON($retorno);
         }
         $valor = $userfound->num_fichas - 1;
-        session()->set('ficha', $valor);
 
         $retorno['certo'] = "<div>Aceito número de fichas: " . esc($valor) . "</div>";
         $this->updateficha($user, $userfound, $valor);

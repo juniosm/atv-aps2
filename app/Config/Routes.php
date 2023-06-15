@@ -43,7 +43,6 @@ $routes->get("/ficha/codbarras", "Ficha::cod_barras",  ["as" => "cod_barras"]);
 $routes->post("/fichastore", 'Ficha::store', ["as" => "ficha.store"]);
 $routes->get("/ficha/lercod", "Ficha::ler_cod",  ["as" => "ler_cod"]);
 $routes->get("/ficha/updateficha", "Ficha::updateficha",  ["as" => "updateficha"]);
-$routes->get("/pegarfichas", "Ficha::pegarfichas",  ["as" => "pegarfichas"]);
 
 
 

@@ -20,6 +20,5 @@ $img_base64 = base64_encode($bar_code);
     <?php echo view("sections/num_fichas") ?>
 
   </div>
-
 </section>
 <?php $this->endSection(); ?>

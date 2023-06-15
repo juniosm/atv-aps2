@@ -18,7 +18,7 @@
         <a href="<?php echo url_to('cod_barras') ?>">Codigo de barras</a>
       </li>
     </ul>
-    <?php echo view("sections/num_fichas") ?>
+    <?php echo view("num_fichas") ?>
 
   </div>
 
