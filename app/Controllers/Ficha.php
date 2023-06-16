@@ -30,6 +30,10 @@ class Ficha extends BaseController
         return view('ler_cod');
     }
 
+    public function num_fichas($data){
+        return view('num_fichas',$data);
+    }
+
 
     public function updateficha($user, $userfound, $valor)
     {
@@ -42,6 +46,7 @@ class Ficha extends BaseController
         ## Update record
         if ($user->update($userfound->id, $data)) {
             session()->set('ficha', $valor);
+            $this->num_fichas($data);
         }
 
         return $data;
