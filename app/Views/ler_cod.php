@@ -1,6 +1,3 @@
-<?php $valor = 14 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,14 +18,9 @@
         <label for="cod">Codigo de leitura</label>
         <input class="input" name="cod" id="code" type="text">
       </div>
-      <div id="resposta">
-        <?php session_start() ?>
-      </div>
+      <div id="resposta"></div>
     </form>
   </section>
-
-
-
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script>
@@ -53,8 +45,7 @@
           if (!response.erro) {
 
             $("#resposta").html(response.certo);
-
-
+            localStorage.setItem("valor", response.certo);
           } else {
             /* Tem erros de validação */
 

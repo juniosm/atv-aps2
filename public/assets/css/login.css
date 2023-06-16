@@ -75,7 +75,7 @@
   cursor: pointer;
 }
 
-.form .button:hover {
+.button:hover {
   background-color: #66cc68;
   border-color: #515151;
 }

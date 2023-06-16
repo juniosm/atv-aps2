@@ -30,9 +30,7 @@ class Ficha extends BaseController
         return view('ler_cod');
     }
 
-    public function num_fichas($data){
-        return view('num_fichas',$data);
-    }
+
 
 
     public function updateficha($user, $userfound, $valor)
@@ -46,7 +44,6 @@ class Ficha extends BaseController
         ## Update record
         if ($user->update($userfound->id, $data)) {
             session()->set('ficha', $valor);
-            $this->num_fichas($data);
         }
 
         return $data;
@@ -70,7 +67,30 @@ class Ficha extends BaseController
         }
         $valor = $userfound->num_fichas - 1;
 
-        $retorno['certo'] = "<div>Aceito número de fichas: " . esc($valor) . "</div>";
+        $retorno['certo'] =  esc($valor);
+        $this->updateficha($user, $userfound, $valor);
+        return $this->response->setJSON($retorno);
+    }
+
+
+    public function stores()
+    {
+        if (!$this->request->isAjax()) {
+            return redirect()->route("add_fichas");
+        }
+        $id = $this->request->getPost('id');
+        $retorno = [];
+
+        $user = new User();
+        $userfound = $user->select("*")->where('id', $id)->first();
+
+        if (!isset($userfound)) {
+            $retorno['erro'] = '<span class="small"> erro</span>';
+            return $this->response->setJSON($retorno);
+        }
+        $valor = $userfound->num_fichas + 1;
+
+        $retorno['certo'] = esc($valor);
         $this->updateficha($user, $userfound, $valor);
         return $this->response->setJSON($retorno);
     }
