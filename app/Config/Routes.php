@@ -41,7 +41,6 @@ $routes->get("/ficha/addfichas", "Ficha::add_fichas",  ["as" => "add_fichas"]);
 $routes->get("/ficha/menu", "Ficha::menu",  ["as" => "menu"]);
 $routes->get("/ficha/codbarras", "Ficha::cod_barras",  ["as" => "cod_barras"]);
 $routes->post("/fichastore", 'Ficha::store', ["as" => "ficha.store"]);
-$routes->post("/fichastores", 'Ficha::stores', ["as" => "ficha.stores"]);
 $routes->get("/ficha/lercod", "Ficha::ler_cod",  ["as" => "ler_cod"]);
 
 

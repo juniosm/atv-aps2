@@ -53,6 +53,7 @@ class Ficha extends BaseController
     public function store()
     {
         if (!$this->request->isAjax()) {
+
             return redirect()->route("ler_cod");
         }
         $cod = $this->request->getPost('cod');
@@ -68,29 +69,7 @@ class Ficha extends BaseController
         $valor = $userfound->num_fichas - 1;
 
         $retorno['certo'] =  esc($valor);
-        $this->updateficha($user, $userfound, $valor);
-        return $this->response->setJSON($retorno);
-    }
 
-
-    public function stores()
-    {
-        if (!$this->request->isAjax()) {
-            return redirect()->route("add_fichas");
-        }
-        $id = $this->request->getPost('id');
-        $retorno = [];
-
-        $user = new User();
-        $userfound = $user->select("*")->where('id', $id)->first();
-
-        if (!isset($userfound)) {
-            $retorno['erro'] = '<span class="small"> erro</span>';
-            return $this->response->setJSON($retorno);
-        }
-        $valor = $userfound->num_fichas + 1;
-
-        $retorno['certo'] = esc($valor);
         $this->updateficha($user, $userfound, $valor);
         return $this->response->setJSON($retorno);
     }

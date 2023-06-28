@@ -24,41 +24,40 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script>
-  $('[name = form]').submit(function() {
+    $('[name = form]').submit(function() {
 
-    event.preventDefault();
-    var cod = $('[name=cod]').val();
-    $.ajax({
-      type: 'post',
-      url: '<?php echo site_url('fichastore'); ?>',
-      dataType: 'json',
-      data: {
-        cod: cod
-      },
-      beforeSend: function() {
+      event.preventDefault();
+      var cod = $('[name=cod]').val();
+      $.ajax({
+        type: 'post',
+        url: '<?php echo site_url('fichastore'); ?>',
+        dataType: 'json',
+        data: {
+          cod: cod
+        },
+        beforeSend: function() {
 
-        $("#resposta").html('<div class="small">Consultando..</div>');
+          $("#resposta").html('<div class="small">Consultando..</div>');
 
-        $('[name = cod]').val('');
-      },
-      success: function(response) {
+          $('[name = cod]').val('');
+        },
+        success: function(response) {
 
-        if (!response.erro) {
+          if (!response.erro) {
 
-          $("#resposta").html(response.certo);
-          localStorage.setItem("valor", response.certo);
-        } else {
-          /* Tem erros de validação */
+            $("#resposta").html(response.certo);
+            localStorage.setItem("valor", response.certo);
+          } else {
+            /* Tem erros de validação */
 
-          $("#resposta").html(response.erro);
+            $("#resposta").html(response.erro);
 
-        }
+          }
 
-      },
+        },
+      });
+
     });
-
-
-  });
   </script>
 
 
